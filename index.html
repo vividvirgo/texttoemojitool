@@ -2,101 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>TextToEmojiTool — Convert Text to Emojis</title>
-  <meta name="description" content="Convert your text into fun emoji-filled messages. Copy instantly. No login." />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text to Emoji Tool — Convert Text into Emoji Style</title>
+  <meta name="description" content="Convert your text into emoji-enhanced messages. Choose a style, adjust emoji density, and copy instantly. Runs entirely in your browser." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <div class="wrap">
-    <header>
+  <header class="topbar">
+    <div class="container">
       <div class="brand">
-        <div class="logo">😊</div>
+        <div class="logo">🙂➡️✨</div>
         <div>
-          <div class="brandname">TextToEmojiTool</div>
-          <div class="tagline">Fast • Free • No login</div>
+          <h1 class="title">TextToEmojiTool</h1>
+          <p class="subtitle">Turn boring text into emoji-enhanced messages — instantly.</p>
         </div>
       </div>
-      <nav>
-        <a href="./index.html">Tool</a>
-        <a href="./about.html">About</a>
-        <a href="./contact.html">Contact</a>
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
+
+      <nav class="nav">
+        <a href="#tool">Tool</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <div class="ad top">Ad Slot (Top Leaderboard)</div>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="tool">
+      <div class="hero-left">
+        <h2>Paste text. Pick a vibe. Copy.</h2>
+        <p class="lead">
+          Choose a style, adjust emoji density, and get a share-ready message in seconds.
+          <span class="trust">Runs entirely in your browser. No login. No tracking.</span>
+        </p>
 
-    <h1>Convert text to emojis in one click.</h1>
-    <p class="sub">Paste text, pick a style, and get an emoji-fied version you can copy instantly.</p>
-
-    <div class="grid">
-      <section class="card">
-        <div class="row" style="justify-content:space-between; gap:12px;">
-          <div>
-            <label for="mode">Emoji style</label><br/>
-            <select id="mode">
-              <option value="lite">Lite</option>
-              <option value="fun" selected>Fun</option>
-              <option value="chaos">Chaos</option>
-            </select>
-          </div>
-
-          <div class="row">
-            <button class="btn2" id="btnExample" type="button">Example</button>
-            <button class="btn" id="btnConvert" type="button">Convert</button>
-          </div>
+        <div class="examples">
+          <button class="example-btn" data-example="I’m so excited for tonight!">Try: “I’m so excited for tonight!”</button>
+          <button class="example-btn" data-example="Reminder: meeting starts in 10 minutes.">Try: “Reminder: meeting starts in 10 minutes.”</button>
+          <button class="example-btn" data-example="Thank you for your help — I really appreciate it.">Try: “Thank you for your help…”</button>
         </div>
+      </div>
 
-        <div class="io">
-          <div class="ioCol">
-            <label for="inputText">Your text</label>
-            <textarea id="inputText" rows="7" placeholder="Type or paste your message here..."></textarea>
-            <div class="small">Tip: Works great for captions, texts, and posts.</div>
-          </div>
-
-          <div class="ioCol">
-            <label for="outputText">Emoji output</label>
-            <textarea id="outputText" rows="7" readonly placeholder="Your emoji version will appear here..."></textarea>
-
-            <div class="row" style="margin-top:10px;">
-              <button class="btn2" id="btnCopy" type="button">Copy</button>
-              <button class="btn2" id="btnClear" type="button">Clear</button>
+      <div class="hero-right">
+        <div class="card">
+          <div class="controls">
+            <div class="control">
+              <label for="mode">Style</label>
+              <select id="mode" aria-label="Style mode">
+                <option value="fun">Fun 😄</option>
+                <option value="cute">Cute 🧸</option>
+                <option value="dramatic">Dramatic 🎭</option>
+                <option value="chaotic">Chaotic 🤪</option>
+                <option value="minimal">Minimal ✨</option>
+                <option value="pro">Professional 💼</option>
+              </select>
             </div>
 
-            <p class="trustline">Runs entirely in your browser. No login. No tracking.</p>
+            <div class="control">
+              <label for="density">Emoji density</label>
+              <input id="density" type="range" min="0" max="3" step="1" value="2" />
+              <div class="density-labels">
+                <span>Low</span><span>Med</span><span>High</span><span>Extra</span>
+              </div>
+            </div>
+
+            <div class="control">
+              <label for="inline">Placement</label>
+              <select id="inline" aria-label="Emoji placement">
+                <option value="inline" selected>Inline (after keywords)</option>
+                <option value="end">End of sentence</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="text-areas">
+            <div class="area">
+              <label for="inputText">Input</label>
+              <textarea id="inputText" placeholder="Type or paste your text here…" rows="6"></textarea>
+              <div class="area-actions">
+                <button id="clearBtn" class="btn ghost" type="button">Clear</button>
+                <button id="swapBtn" class="btn ghost" type="button" title="Move output back to input">Output → Input</button>
+              </div>
+            </div>
+
+            <div class="area">
+              <div class="output-head">
+                <label for="outputText">Output</label>
+                <span id="charCount" class="meta">0 chars</span>
+              </div>
+              <textarea id="outputText" readonly rows="6" aria-label="Emoji output"></textarea>
+
+              <div class="actions">
+                <button id="copyBtn" class="btn primary" type="button">Copy</button>
+                <button id="shareBtn" class="btn" type="button">Share</button>
+              </div>
+
+              <p id="copyToast" class="toast" role="status" aria-live="polite">Copied!</p>
+            </div>
+          </div>
+
+          <div class="fineprint">
+            Tip: This tool is designed for quick copy-paste. For best results, keep sentences short.
           </div>
         </div>
-      </section>
 
-      <aside class="card">
-        <div class="ad inline">Ad Slot (Inline 300×250)</div>
-        <h3 style="margin:10px 0 8px;">Popular uses</h3>
-        <ul class="list">
-          <li>Instagram captions</li>
-          <li>Text messages</li>
-          <li>Birthday messages</li>
-          <li>Product announcements</li>
-          <li>Funny “emoji reviews”</li>
-        </ul>
-
-        <div class="small" style="margin-top:12px;">
-          Want more categories (sports, travel, food)? Easy add later.
+        <!-- Placeholder ad block (optional) -->
+        <div class="ad-placeholder" aria-hidden="true">
+          <span>Ad space</span>
         </div>
-      </aside>
-    </div>
+      </div>
+    </section>
 
-    <div class="ad footer">Ad Slot (Footer)</div>
+    <!-- HOW -->
+    <section class="section" id="how">
+      <h3>How it works</h3>
+      <div class="grid">
+        <div class="mini-card">
+          <h4>1) Choose a style</h4>
+          <p>Pick a vibe (Fun, Cute, Minimal, Pro…). Each style uses different emoji sets.</p>
+        </div>
+        <div class="mini-card">
+          <h4>2) Adjust density</h4>
+          <p>Control how emoji-heavy the output is. Keep it subtle or go wild.</p>
+        </div>
+        <div class="mini-card">
+          <h4>3) Copy & share</h4>
+          <p>One-click copy, and optional share using your device’s share menu.</p>
+        </div>
+      </div>
+    </section>
 
-    <footer>
-      <div>© <span id="year"></span> TextToEmojiTool</div>
-      <div class="small">Privacy • Terms • Contact</div>
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h3>FAQ</h3>
+      <div class="faq">
+        <details>
+          <summary>Does this run on my device?</summary>
+          <p>Yes. Everything runs in your browser. Your text isn’t uploaded anywhere.</p>
+        </details>
+        <details>
+          <summary>Can I use this on mobile?</summary>
+          <p>Yep — it’s optimized for mobile and quick copy-paste workflows.</p>
+        </details>
+        <details>
+          <summary>How do you choose emojis?</summary>
+          <p>The tool uses a small keyword map plus style packs. It’s designed to be fast and consistent.</p>
+        </details>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <strong>TextToEmojiTool.com</strong>
+          <p class="muted">Fast emoji formatting. No accounts. No tracking.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" id="aboutLink">About</a>
+          <a href="#" id="privacyLink">Privacy</a>
+          <a href="#" id="termsLink">Terms</a>
+          <a href="mailto:hello@texttoemojitool.com">Contact</a>
+        </div>
+      </div>
+      <p class="tiny muted">© <span id="year"></span> TextToEmojiTool</p>
     </footer>
+  </main>
+
+  <!-- Simple modal for About/Privacy/Terms (no extra pages needed) -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h4 id="modalTitle">Title</h4>
+        <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
   </div>
 
-  <div class="toast" id="toast">Copied!</div>
-
-  <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
