@@ -1,0 +1,67 @@
+<!-- about.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — TextToEmojiTool</title>
+  <meta name="description" content="About TextToEmojiTool — a simple text-to-emoji helper that runs in your browser." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">😊</div>
+        <div>
+          <div class="brand-name">TextToEmojiTool</div>
+          <div class="brand-tag">Fast • Free • No login</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="./index.html">Tool</a>
+        <a href="./about.html" aria-current="page">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <h1>About TextToEmojiTool</h1>
+      <p class="sub">
+        TextToEmojiTool helps you turn plain text into emoji-friendly phrasing you can copy and paste
+        into captions, bios, chats, and posts.
+      </p>
+
+      <h2>What this site does</h2>
+      <ul class="list">
+        <li>Suggests emojis that match common words and vibes</li>
+        <li>Lets you copy the result instantly</li>
+        <li>Runs quickly on mobile and desktop</li>
+      </ul>
+
+      <h2>Simple by design</h2>
+      <p class="small">
+        We built this to be lightweight and distraction-free. No accounts, no complicated dashboards—just a fast tool.
+      </p>
+
+      <h2>Feedback</h2>
+      <p class="small">
+        If you have an idea for an emoji pack, keyword, or feature, we’d love to hear it.
+        Email us at <a href="mailto:hello@texttoemojitool.com">hello@texttoemojitool.com</a>.
+      </p>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> TextToEmojiTool</div>
+      <div class="small">About • Contact • Privacy • Terms</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
