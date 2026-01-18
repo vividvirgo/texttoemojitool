@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TextToEmojiTool — Convert Text to Emojis</title>
+  <meta name="description" content="Convert your text into fun emoji-filled messages. Copy instantly. No login." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">😊</div>
+        <div>
+          <div class="brandname">TextToEmojiTool</div>
+          <div class="tagline">Fast • Free • No login</div>
+        </div>
+      </div>
+      <nav>
+        <a href="./index.html">Tool</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <div class="ad top">Ad Slot (Top Leaderboard)</div>
+
+    <h1>Convert text to emojis in one click.</h1>
+    <p class="sub">Paste text, pick a style, and get an emoji-fied version you can copy instantly.</p>
+
+    <div class="grid">
+      <section class="card">
+        <div class="row" style="justify-content:space-between; gap:12px;">
+          <div>
+            <label for="mode">Emoji style</label><br/>
+            <select id="mode">
+              <option value="lite">Lite</option>
+              <option value="fun" selected>Fun</option>
+              <option value="chaos">Chaos</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <button class="btn2" id="btnExample" type="button">Example</button>
+            <button class="btn" id="btnConvert" type="button">Convert</button>
+          </div>
+        </div>
+
+        <div class="io">
+          <div class="ioCol">
+            <label for="inputText">Your text</label>
+            <textarea id="inputText" rows="7" placeholder="Type or paste your message here..."></textarea>
+            <div class="small">Tip: Works great for captions, texts, and posts.</div>
+          </div>
+
+          <div class="ioCol">
+            <label for="outputText">Emoji output</label>
+            <textarea id="outputText" rows="7" readonly placeholder="Your emoji version will appear here..."></textarea>
+
+            <div class="row" style="margin-top:10px;">
+              <button class="btn2" id="btnCopy" type="button">Copy</button>
+              <button class="btn2" id="btnClear" type="button">Clear</button>
+            </div>
+
+            <p class="trustline">Runs entirely in your browser. No login. No tracking.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card">
+        <div class="ad inline">Ad Slot (Inline 300×250)</div>
+        <h3 style="margin:10px 0 8px;">Popular uses</h3>
+        <ul class="list">
+          <li>Instagram captions</li>
+          <li>Text messages</li>
+          <li>Birthday messages</li>
+          <li>Product announcements</li>
+          <li>Funny “emoji reviews”</li>
+        </ul>
+
+        <div class="small" style="margin-top:12px;">
+          Want more categories (sports, travel, food)? Easy add later.
+        </div>
+      </aside>
+    </div>
+
+    <div class="ad footer">Ad Slot (Footer)</div>
+
+    <footer>
+      <div>© <span id="year"></span> TextToEmojiTool</div>
+      <div class="small">Privacy • Terms • Contact</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">Copied!</div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
