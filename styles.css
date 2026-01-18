@@ -416,6 +416,30 @@ footer {
     margin-top: 40px;
 }
 
+.footer-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #5568d3;
+    text-decoration: underline;
+}
+
+.footer-links span {
+    color: #cbd5e0;
+}
+
 /* Responsive Design */
 @media (min-width: 1024px) {
     .main-layout {
