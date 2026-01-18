@@ -10,7 +10,7 @@
 
 <body>
   <header class="topbar">
-    <div class="container">
+    <div class="container topbar-inner">
       <div class="brand">
         <div class="logo">🙂➡️✨</div>
         <div>
@@ -25,10 +25,20 @@
         <a href="#faq">FAQ</a>
       </nav>
     </div>
+
+    <!-- Ad Slot: Header (Responsive)
+         Good placement: visible but not blocking the tool.
+         Replace the placeholder with AdSense code after approval. -->
+    <div class="container">
+      <div class="ad-slot ad-header" aria-label="Advertisement">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-box">Responsive Ad Slot (Header)</div>
+      </div>
+    </div>
   </header>
 
   <main class="container">
-    <!-- HERO -->
+    <!-- HERO / TOOL -->
     <section class="hero" id="tool">
       <div class="hero-left">
         <h2>Paste text. Pick a vibe. Copy.</h2>
@@ -41,6 +51,13 @@
           <button class="example-btn" data-example="I’m so excited for tonight!">Try: “I’m so excited for tonight!”</button>
           <button class="example-btn" data-example="Reminder: meeting starts in 10 minutes.">Try: “Reminder: meeting starts in 10 minutes.”</button>
           <button class="example-btn" data-example="Thank you for your help — I really appreciate it.">Try: “Thank you for your help…”</button>
+        </div>
+
+        <!-- Ad Slot: Sidebar (Desktop only)
+             Optional. Hidden on mobile to protect UX. -->
+        <div class="ad-slot ad-side" aria-label="Advertisement">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-box">Desktop Ad Slot (Sidebar)</div>
         </div>
       </div>
 
@@ -76,6 +93,13 @@
             </div>
           </div>
 
+          <!-- Ad Slot: In-Tool (Responsive)
+               Great viewability without being disruptive. -->
+          <div class="ad-slot ad-in-tool" aria-label="Advertisement">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-box">Responsive Ad Slot (In Tool)</div>
+          </div>
+
           <div class="text-areas">
             <div class="area">
               <label for="inputText">Input</label>
@@ -106,13 +130,14 @@
             Tip: This tool is designed for quick copy-paste. For best results, keep sentences short.
           </div>
         </div>
-
-        <!-- Placeholder ad block (optional) -->
-        <div class="ad-placeholder" aria-hidden="true">
-          <span>Ad space</span>
-        </div>
       </div>
     </section>
+
+    <!-- MID CONTENT AD -->
+    <div class="ad-slot ad-mid" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-box">Responsive Ad Slot (Mid Page)</div>
+    </div>
 
     <!-- HOW -->
     <section class="section" id="how">
@@ -152,6 +177,13 @@
       </div>
     </section>
 
+    <!-- Footer Ad (Optional)
+         This can be removed if you want a cleaner feel. -->
+    <div class="ad-slot ad-footer" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-box">Responsive Ad Slot (Footer)</div>
+    </div>
+
     <footer class="footer">
       <div class="footer-grid">
         <div>
@@ -169,7 +201,7 @@
     </footer>
   </main>
 
-  <!-- Simple modal for About/Privacy/Terms (no extra pages needed) -->
+  <!-- Simple modal for About/Privacy/Terms -->
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
