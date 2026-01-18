@@ -1,0 +1,87 @@
+<!-- privacy.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy — TextToEmojiTool</title>
+  <meta name="description" content="Privacy Policy for TextToEmojiTool." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">😊</div>
+        <div>
+          <div class="brand-name">TextToEmojiTool</div>
+          <div class="brand-tag">Fast • Free • No login</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="./index.html">Tool</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+        <a href="./privacy.html" aria-current="page">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <h1>Privacy Policy</h1>
+      <p class="small">Last updated: <span id="date"></span></p>
+
+      <h2>Summary</h2>
+      <p class="sub">
+        TextToEmojiTool runs in your browser. We do not require an account to use the tool.
+      </p>
+
+      <h2>Information we collect</h2>
+      <ul class="list">
+        <li><strong>No account data:</strong> We don’t ask you to sign up or provide personal information to use the tool.</li>
+        <li><strong>User input:</strong> Text you enter is processed in your browser for the purpose of generating emoji suggestions.</li>
+      </ul>
+
+      <h2>Cookies, analytics, and ads</h2>
+      <p class="small">
+        We may use third-party services (such as analytics and advertising providers) that use cookies or similar
+        technologies to deliver and measure ads, and to understand site usage.
+      </p>
+      <ul class="list">
+        <li><strong>Advertising:</strong> If ads are enabled, third-party vendors (such as Google) may use cookies to serve ads based on prior visits.</li>
+        <li><strong>Analytics:</strong> If analytics are enabled, we may collect aggregate usage data (e.g., page views) to improve the site.</li>
+      </ul>
+
+      <h2>How we use information</h2>
+      <ul class="list">
+        <li>To operate and improve the website</li>
+        <li>To measure performance and prevent abuse</li>
+        <li>To display ads (if enabled) and support the site</li>
+      </ul>
+
+      <h2>Data retention</h2>
+      <p class="small">
+        If we use analytics, data is retained according to the provider’s settings and policies. We do not sell your personal information.
+      </p>
+
+      <h2>Contact</h2>
+      <p class="small">
+        If you have privacy questions, contact us at
+        <a href="mailto:hello@texttoemojitool.com">hello@texttoemojitool.com</a>.
+      </p>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> TextToEmojiTool</div>
+      <div class="small">About • Contact • Privacy • Terms</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const d = new Date();
+    document.getElementById("date").textContent = d.toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
+  </script>
+</body>
+</html>
