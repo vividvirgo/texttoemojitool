@@ -1,0 +1,57 @@
+<!-- contact.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — TextToEmojiTool</title>
+  <meta name="description" content="Contact TextToEmojiTool." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">😊</div>
+        <div>
+          <div class="brand-name">TextToEmojiTool</div>
+          <div class="brand-tag">Fast • Free • No login</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="./index.html">Tool</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html" aria-current="page">Contact</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </nav>
+    </header>
+
+    <main class="card">
+      <h1>Contact</h1>
+      <p class="sub">
+        Questions, feedback, feature requests, or bug reports—send us a note.
+      </p>
+
+      <div class="notice">
+        <strong>Email:</strong>
+        <a href="mailto:hello@texttoemojitool.com">hello@texttoemojitool.com</a>
+      </div>
+
+      <p class="small" style="margin-top:12px">
+        We typically reply within a few business days.
+      </p>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> TextToEmojiTool</div>
+      <div class="small">About • Contact • Privacy • Terms</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
