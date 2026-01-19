@@ -99,7 +99,7 @@ body {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -241,6 +241,14 @@ input[type="range"]::-moz-range-thumb {
     font-weight: 600;
     color: #4a5568;
     margin-bottom: 8px;
+}
+
+.mobile-hint {
+    display: none;
+    font-size: 0.85em;
+    color: #a0aec0;
+    margin-bottom: 8px;
+    font-weight: 400;
 }
 
 .output-header {
@@ -470,6 +478,10 @@ footer {
 
     .io-section {
         grid-template-columns: 1fr;
+    }
+
+    .mobile-hint {
+        display: block;
     }
 
     .examples {
