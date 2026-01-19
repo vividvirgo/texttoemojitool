@@ -1,287 +1,274 @@
-// Comprehensive emoji database organized by category
-const emojiDatabase = {
-    emotions: {
-        'happy': '😊', 'excited': '🎉', 'love': '❤️', 'sad': '😢', 
-        'angry': '😠', 'surprised': '😮', 'laughing': '😂', 'crying': '😭',
-        'smile': '😊', 'joy': '😄', 'grateful': '🙏', 'blessed': '🙏',
-        'worried': '😟', 'nervous': '😰', 'scared': '😱', 'relieved': '😌'
-    },
-    
-    greetings: {
-        'hello': '👋', 'hi': '👋', 'hey': '👋', 'bye': '👋', 
-        'goodbye': '👋', 'welcome': '🤗', 'greetings': '👋'
-    },
-    
-    gratitude: {
-        'thanks': '🙏', 'thank': '🙏', 'grateful': '🙏', 
-        'appreciate': '🙏', 'kudos': '👏'
-    },
-    
-    approval: {
-        'yes': '✅', 'ok': '👌', 'okay': '👌', 'good': '👍', 
-        'great': '🌟', 'awesome': '🎊', 'amazing': '✨', 
-        'excellent': '⭐', 'perfect': '💯', 'best': '🏆',
-        'congrats': '🎉', 'congratulations': '🎉', 'nice': '👍'
-    },
-    
-    disapproval: {
-        'no': '❌', 'nope': '❌', 'bad': '👎', 'terrible': '😖',
-        'awful': '😞', 'wrong': '❌'
-    },
-    
-    work: {
-        'work': '💼', 'job': '💼', 'office': '🏢', 'meeting': '📊',
-        'presentation': '📊', 'project': '📁', 'deadline': '⏰',
-        'business': '💼', 'professional': '👔', 'career': '📈'
-    },
-    
-    time: {
-        'today': '📅', 'tomorrow': '📆', 'tonight': '🌙',
-        'morning': '🌅', 'evening': '🌆', 'night': '🌙',
-        'time': '⏰', 'clock': '🕐', 'schedule': '📅',
-        'soon': '⏰', 'minutes': '⏱️', 'hours': '⏰'
-    },
-    
-    food: {
-        'food': '🍕', 'eat': '🍽️', 'lunch': '🍱', 'dinner': '🍽️',
-        'breakfast': '🍳', 'coffee': '☕', 'tea': '🍵',
-        'pizza': '🍕', 'burger': '🍔', 'cake': '🎂',
-        'beer': '🍺', 'wine': '🍷', 'drink': '🥤',
-        'chocolate': '🍫', 'dessert': '🍰', 'hungry': '🍕'
-    },
-    
-    celebration: {
-        'birthday': '🎂', 'party': '🎉', 'celebrate': '🎊',
-        'anniversary': '🎊', 'cheers': '🥂', 'festive': '🎈',
-        'holiday': '🎄', 'vacation': '🏖️'
-    },
-    
-    communication: {
-        'call': '📞', 'phone': '📱', 'email': '📧', 
-        'message': '💬', 'text': '💬', 'chat': '💬',
-        'talk': '💬', 'discuss': '💭', 'remind': '🔔',
-        'reminder': '🔔', 'alert': '🔔'
-    },
-    
-    activities: {
-        'study': '📚', 'read': '📖', 'book': '📚',
-        'music': '🎵', 'song': '🎵', 'movie': '🎬',
-        'game': '🎮', 'play': '🎮', 'sport': '⚽',
-        'exercise': '💪', 'workout': '🏋️', 'gym': '💪',
-        'run': '🏃', 'running': '🏃', 'dance': '💃',
-        'travel': '✈️', 'trip': '🧳', 'flight': '✈️'
-    },
-    
-    nature: {
-        'sun': '☀️', 'sunny': '☀️', 'moon': '🌙',
-        'star': '⭐', 'rain': '🌧️', 'snow': '❄️',
-        'tree': '🌲', 'flower': '🌸', 'nature': '🌿',
-        'beach': '🏖️', 'ocean': '🌊', 'mountain': '⛰️',
-        'fire': '🔥', 'hot': '🔥', 'cold': '❄️'
-    },
-    
-    achievement: {
-        'win': '🏆', 'winner': '🏆', 'success': '🎯',
-        'goal': '⚽', 'achieve': '🎯', 'accomplish': '✅',
-        'done': '✅', 'complete': '✅', 'finished': '✅'
-    },
-    
-    money: {
-        'money': '💰', 'cash': '💵', 'rich': '💎',
-        'expensive': '💸', 'paid': '💰', 'salary': '💰',
-        'bonus': '💰'
-    },
-    
-    symbols: {
-        'new': '🆕', 'hot': '🔥', 'cool': '😎',
-        'top': '🔝', 'king': '👑', 'queen': '👑',
-        'strong': '💪', 'power': '💪', 'brain': '🧠',
-        'smart': '🧠', 'idea': '💡', 'thinking': '🤔',
-        'rocket': '🚀', 'fast': '⚡', 'lightning': '⚡'
-    },
-    
-    help: {
-        'help': '🆘', 'question': '❓', 'problem': '⚠️',
-        'issue': '⚠️', 'warning': '⚠️', 'emergency': '🚨'
-    }
+// TextToEmojiTool — vanilla JS
+// Runs entirely in the browser. No tracking, no network calls.
+
+const els = {
+  input: document.getElementById("inputText"),
+  output: document.getElementById("outputText"),
+  mode: document.getElementById("mode"),
+  density: document.getElementById("density"),
+  placement: document.getElementById("inline"),
+  copyBtn: document.getElementById("copyBtn"),
+  shareBtn: document.getElementById("shareBtn"),
+  clearBtn: document.getElementById("clearBtn"),
+  swapBtn: document.getElementById("swapBtn"),
+  toast: document.getElementById("copyToast"),
+  charCount: document.getElementById("charCount"),
+  year: document.getElementById("year"),
+  examples: document.querySelectorAll(".example-btn"),
+  // modal
+  modal: document.getElementById("modal"),
+  modalBackdrop: document.getElementById("modalBackdrop"),
+  modalClose: document.getElementById("modalClose"),
+  modalTitle: document.getElementById("modalTitle"),
+  modalBody: document.getElementById("modalBody"),
+  aboutLink: document.getElementById("aboutLink"),
+  privacyLink: document.getElementById("privacyLink"),
+  termsLink: document.getElementById("termsLink")
 };
 
-// Flatten the database for easy lookup
-const emojiMap = {};
-Object.values(emojiDatabase).forEach(category => {
-    Object.assign(emojiMap, category);
-});
+els.year.textContent = new Date().getFullYear();
 
-// Style presets with different emoji selection strategies
-const stylePresets = {
-    fun: {
-        categories: ['emotions', 'celebration', 'symbols'],
-        intensity: 1.2,
-        suffix: ['😊', '✨', '🎉']
-    },
-    professional: {
-        categories: ['work', 'achievement', 'approval'],
-        intensity: 0.7,
-        suffix: ['💼', '✅']
-    },
-    casual: {
-        categories: ['greetings', 'emotions', 'activities'],
-        intensity: 1.0,
-        suffix: ['👋', '😊']
-    },
-    enthusiastic: {
-        categories: ['celebration', 'approval', 'emotions'],
-        intensity: 1.5,
-        suffix: ['🎉', '🚀', '✨', '🔥']
-    },
-    minimal: {
-        categories: ['approval', 'symbols'],
-        intensity: 0.5,
-        suffix: ['✨']
-    }
+// Simple keyword → emoji map.
+// You can expand this over time (this is the "content moat").
+const baseMap = [
+  { re: /\b(thank(s| you)?|appreciate|grateful)\b/gi, e: ["🙏","💛","✨"] },
+  { re: /\b(love|lovely|ador(e|able)|xoxo)\b/gi, e: ["❤️","🥰","💖"] },
+  { re: /\b(congrats|congratulations|proud)\b/gi, e: ["🎉","👏","🥳"] },
+  { re: /\b(happy|yay|excited|awesome|amazing)\b/gi, e: ["😄","🎉","✨"] },
+  { re: /\b(sad|sorry|miss|hurt)\b/gi, e: ["😔","💙","🥺"] },
+  { re: /\b(lol|haha|funny|lmao)\b/gi, e: ["😂","🤣","😆"] },
+  { re: /\b(idea|brainstorm|plan)\b/gi, e: ["💡","🧠","📝"] },
+  { re: /\b(meeting|call|zoom|teams)\b/gi, e: ["📅","🕒","💬"] },
+  { re: /\b(work|job|deadline|task)\b/gi, e: ["💼","✅","⏳"] },
+  { re: /\b(money|budget|profit|income)\b/gi, e: ["💰","📈","🧾"] },
+  { re: /\b(travel|trip|vacation|flight)\b/gi, e: ["✈️","🌍","🧳"] },
+  { re: /\b(food|eat|dinner|lunch|breakfast)\b/gi, e: ["🍽️","😋","🍕"] },
+  { re: /\b(coffee|tea)\b/gi, e: ["☕","🫖","✨"] },
+  { re: /\b(good luck|luck)\b/gi, e: ["🍀","🤞","✨"] },
+  { re: /\b(yes|yep|yeah)\b/gi, e: ["✅","👍"] },
+  { re: /\b(no|nope)\b/gi, e: ["❌","🙅"] }
+];
+
+const stylePacks = {
+  fun: ["😄","✨","🎉","🔥","🙌","💯","😎","😂"],
+  cute: ["🥺","🧸","🌸","🍓","✨","🐣","💖","😻"],
+  dramatic: ["🎭","⚡","🔥","😤","🫣","😱","🎬","💥"],
+  chaotic: ["🤪","💀","🫠","🧨","🌀","👀","🤯","🧃"],
+  minimal: ["✨","✅","💡","📌","→","•","✦","↳"],
+  pro: ["✅","📌","📈","🧾","🗓️","💼","🔎","🧠"]
 };
 
-// Convert text based on current settings
-function convertText() {
-    const input = document.getElementById('input').value;
-    const style = document.getElementById('style').value;
-    const density = parseInt(document.getElementById('density').value);
-    const placement = document.getElementById('placement').value;
-    
-    if (!input.trim()) {
-        document.getElementById('output').value = '';
-        return;
-    }
+function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 
-    const preset = stylePresets[style];
-    const result = processText(input, preset, density, placement);
-    
-    document.getElementById('output').value = result;
-    updateCharCount();
+function pick(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Process text with emoji insertion
-function processText(text, preset, density, placement) {
-    let result = text;
-    const words = text.toLowerCase().match(/\b[\w']+\b/g) || [];
-    
-    // Filter emoji map based on style categories
-    const relevantEmojis = {};
-    preset.categories.forEach(cat => {
-        if (emojiDatabase[cat]) {
-            Object.assign(relevantEmojis, emojiDatabase[cat]);
-        }
+function emojiCountFromDensity(density){
+  // density: 0..3
+  return [0, 1, 2, 3][density] ?? 2;
+}
+
+function insertInlineEmojis(text, pack, density){
+  const count = emojiCountFromDensity(density);
+  if (count === 0) return text;
+
+  let out = text;
+
+  // For each keyword pattern, append 1 emoji after matches (lightweight & consistent)
+  baseMap.forEach(({re, e}) => {
+    out = out.replace(re, (match) => {
+      // 50% chance to add emojis to avoid overstuffing
+      if (Math.random() < 0.5) return match;
+      const chosen = pick(e);
+      return `${match} ${chosen}`;
     });
+  });
 
-    // Calculate how many emojis to add based on density
-    const maxEmojis = Math.ceil(words.length * density * 0.15 * preset.intensity);
-    let addedCount = 0;
-    const matches = [];
+  // Add a subtle emoji at sentence ends depending on density
+  if (density >= 2) {
+    out = out.replace(/([.!?])(\s|$)/g, (m, punc, tail) => {
+      return `${punc} ${pick(pack)}${tail}`;
+    });
+  }
 
-    // Find all matching keywords
-    for (const [keyword, emoji] of Object.entries(relevantEmojis)) {
-        const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
-        const match = regex.exec(result);
-        if (match) {
-            matches.push({ keyword, emoji, index: match.index });
-        }
-    }
-
-    // Sort matches by position and limit by density
-    matches.sort((a, b) => a.index - b.index);
-    const selectedMatches = matches.slice(0, maxEmojis);
-
-    // Apply inline placement
-    if (placement === 'inline' || placement === 'both') {
-        // Process matches in reverse order to maintain correct indices
-        selectedMatches.reverse().forEach(match => {
-            const regex = new RegExp(`\\b${match.keyword}\\b`, 'i');
-            result = result.replace(regex, (matched) => `${matched} ${match.emoji}`);
-            addedCount++;
-        });
-    }
-
-    // Apply start/end placement
-    const suffixEmojis = preset.suffix.slice(0, Math.ceil(density / 2));
-    
-    if (placement === 'start' || placement === 'both') {
-        result = suffixEmojis.join(' ') + ' ' + result;
-    }
-    
-    if (placement === 'end' || placement === 'both') {
-        result = result + ' ' + suffixEmojis.join(' ');
-    }
-
-    // If no matches were found and placement is inline, add some emojis at the end
-    if (addedCount === 0 && placement === 'inline') {
-        result = result + ' ' + suffixEmojis[0];
-    }
-
-    return result.trim();
+  return out;
 }
 
-// Copy output to clipboard
-function copyOutput() {
-    const output = document.getElementById('output');
-    
-    if (!output.value.trim()) {
-        showCopyFeedback('Nothing to copy! 📝', false);
-        return;
-    }
+function emojisAtEnd(text, pack, density){
+  const count = emojiCountFromDensity(density);
+  if (count === 0) return text;
 
-    output.select();
-    
+  // Add emojis to the end of each sentence (or line)
+  return text
+    .split(/\n/)
+    .map(line => {
+      const trimmed = line.trim();
+      if (!trimmed) return line;
+
+      // If line already ends with emoji-ish, don't overdo it
+      const alreadyEmoji = /[\u{1F300}-\u{1FAFF}]\s*$/u.test(trimmed);
+      if (alreadyEmoji) return line;
+
+      let suffix = "";
+      for (let i = 0; i < count; i++) suffix += pick(pack) + (i === count - 1 ? "" : " ");
+      return `${trimmed} ${suffix}`;
+    })
+    .join("\n");
+}
+
+function convertText(){
+  const text = (els.input.value || "").trim();
+  const pack = stylePacks[els.mode.value] || stylePacks.fun;
+  const density = parseInt(els.density.value, 10);
+  const placement = els.placement.value;
+
+  if (!text){
+    els.output.value = "";
+    updateMeta("");
+    return;
+  }
+
+  // Keep it fast — no heavy NLP. Simple mapping + style packs.
+  let result = text;
+
+  if (placement === "inline"){
+    result = insertInlineEmojis(result, pack, density);
+  } else {
+    result = emojisAtEnd(result, pack, density);
+  }
+
+  // Final polish: collapse extra spaces
+  result = result.replace(/[ \t]{2,}/g, " ").replace(/\n{3,}/g, "\n\n");
+
+  els.output.value = result;
+  updateMeta(result);
+}
+
+function updateMeta(out){
+  els.charCount.textContent = `${out.length} chars`;
+}
+
+function showToast(){
+  els.toast.style.display = "block";
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => {
+    els.toast.style.display = "none";
+  }, 1200);
+}
+
+// Copy
+async function copyOutput(){
+  const text = els.output.value;
+  if (!text) return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast();
+  } catch (e) {
+    // Fallback
+    els.output.select();
+    document.execCommand("copy");
+    showToast();
+  }
+}
+
+// Share (mobile-friendly)
+async function shareOutput(){
+  const text = els.output.value;
+  if (!text) return;
+
+  if (navigator.share){
     try {
-        document.execCommand('copy');
-        showCopyFeedback('Copied! ✅', true);
-    } catch (err) {
-        // Fallback for modern browsers
-        navigator.clipboard.writeText(output.value).then(() => {
-            showCopyFeedback('Copied! ✅', true);
-        }).catch(() => {
-            showCopyFeedback('Copy failed ❌', false);
-        });
+      await navigator.share({ text });
+    } catch (e) {
+      // user canceled — do nothing
     }
+  } else {
+    // fallback: copy
+    await copyOutput();
+  }
 }
 
-// Show copy feedback
-function showCopyFeedback(message, success) {
-    const btn = document.getElementById('copyText');
-    const originalText = btn.textContent;
-    
-    btn.textContent = message;
-    
-    setTimeout(() => {
-        btn.textContent = originalText;
-    }, 2000);
+function clearAll(){
+  els.input.value = "";
+  els.output.value = "";
+  updateMeta("");
+  els.input.focus();
 }
 
-// Fill example text
-function fillExample(text) {
-    document.getElementById('input').value = text;
+function swapOutputToInput(){
+  const out = els.output.value;
+  if (!out) return;
+  els.input.value = out;
+  convertText();
+  els.input.focus();
+}
+
+// Examples
+els.examples.forEach(btn => {
+  btn.addEventListener("click", () => {
+    els.input.value = btn.dataset.example || "";
     convertText();
-}
-
-// Update character count
-function updateCharCount() {
-    const output = document.getElementById('output').value;
-    document.getElementById('charCount').textContent = `${output.length} chars`;
-}
-
-// Update density label (optional visual feedback)
-function updateDensityLabel() {
-    // Could add visual feedback here if desired
-}
-
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', () => {
-    // Auto-convert as user types
-    const input = document.getElementById('input');
-    
-    // Debounce function for performance
-    let timeout;
-    input.addEventListener('input', () => {
-        clearTimeout(timeout);
-        timeout = setTimeout(convertText, 300);
-    });
+    els.input.focus();
+  });
 });
+
+// Live convert
+["input", "change", "keyup"].forEach(evt => {
+  els.input.addEventListener(evt, convertText);
+});
+els.mode.addEventListener("change", convertText);
+els.density.addEventListener("input", convertText);
+els.placement.addEventListener("change", convertText);
+
+els.copyBtn.addEventListener("click", copyOutput);
+els.shareBtn.addEventListener("click", shareOutput);
+els.clearBtn.addEventListener("click", clearAll);
+els.swapBtn.addEventListener("click", swapOutputToInput);
+
+// Modal content (simple, AdSense-safe)
+const modalContent = {
+  about: {
+    title: "About",
+    body: `
+      <p><strong>TextToEmojiTool</strong> is a simple browser-based utility that turns plain text into emoji-enhanced messages.</p>
+      <p>It runs entirely on your device — no accounts, no uploads, no tracking.</p>
+    `
+  },
+  privacy: {
+    title: "Privacy Policy",
+    body: `
+      <p><strong>Privacy-first:</strong> This site processes your text in your browser. We do not store or transmit your input.</p>
+      <p>When ads are enabled, advertising partners may use cookies or similar technologies to show relevant ads. You can manage ad personalization in your browser settings.</p>
+    `
+  },
+  terms: {
+    title: "Terms",
+    body: `
+      <p>This tool is provided “as is” without warranties. You’re responsible for how you use the output.</p>
+      <p>Do not submit sensitive information. For questions, contact: <a href="mailto:hello@texttoemojitool.com">hello@texttoemojitool.com</a>.</p>
+    `
+  }
+};
+
+function openModal(key){
+  const item = modalContent[key];
+  if (!item) return;
+  els.modalTitle.textContent = item.title;
+  els.modalBody.innerHTML = item.body;
+  els.modal.setAttribute("aria-hidden", "false");
+}
+
+function closeModal(){
+  els.modal.setAttribute("aria-hidden", "true");
+}
+
+els.aboutLink.addEventListener("click", (e) => { e.preventDefault(); openModal("about"); });
+els.privacyLink.addEventListener("click", (e) => { e.preventDefault(); openModal("privacy"); });
+els.termsLink.addEventListener("click", (e) => { e.preventDefault(); openModal("terms"); });
+els.modalClose.addEventListener("click", closeModal);
+els.modalBackdrop.addEventListener("click", closeModal);
+
+// Initial
+convertText();
