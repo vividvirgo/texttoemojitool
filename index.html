@@ -1,211 +1,218 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to Emoji Tool - Transform Your Messages Instantly</title>
-    <meta name="description" content="Turn boring text into emoji-enhanced messages instantly. Free online tool to add emojis to your text automatically.">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text to Emoji Tool — Convert Text into Emoji Style</title>
+  <meta name="description" content="Convert your text into emoji-enhanced messages. Choose a style, adjust emoji density, and copy instantly. Runs entirely in your browser." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">📝✨</span>
-                <span class="logo-text">TextToEmojiTool</span>
-            </div>
-            <div class="nav-links">
-                <a href="#tool">Tool</a>
-                <a href="#how-it-works">How it works</a>
-                <a href="#faq">FAQ</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">🙂➡️✨</div>
+        <div>
+          <h1 class="title">TextToEmojiTool</h1>
+          <p class="subtitle">Turn boring text into emoji-enhanced messages — instantly.</p>
         </div>
-    </nav>
+      </div>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <h1>Turn boring text into emoji-enhanced messages — instantly.</h1>
-            <p class="tagline">Choose a style, adjust emoji density, and get a share-ready message in seconds.</p>
-            <p class="subtext">Runs entirely in your browser. No login. No tracking.</p>
-        </header>
-
-        <!-- AdSense Top Banner -->
-        <div class="ad-section ad-header">
-            <p class="ad-label">Advertisement</p>
-            <div class="ad-placeholder">
-                <!-- Replace with AdSense code -->
-                <p>Responsive Ad Slot (Header)</p>
-            </div>
-        </div>
-
-        <!-- Quick Examples -->
-        <section class="examples">
-            <p class="examples-title">Try:</p>
-            <button class="example-btn" onclick="fillExample('I\'m so excited for tonight!')">
-                "I'm so excited for tonight!"
-            </button>
-            <button class="example-btn" onclick="fillExample('Reminder: meeting starts in 10 minutes.')">
-                "Reminder: meeting starts in 10 minutes."
-            </button>
-            <button class="example-btn" onclick="fillExample('Thank you for your help...')">
-                "Thank you for your help..."
-            </button>
-        </section>
-
-        <div class="main-layout">
-            <!-- Left Column: Tool -->
-            <div class="tool-section" id="tool">
-                <div class="tool-card">
-                    <!-- Controls Row -->
-                    <div class="controls-row">
-                        <div class="control-group">
-                            <label for="style">Style</label>
-                            <select id="style" onchange="convertText()">
-                                <option value="fun">Fun 😊</option>
-                                <option value="professional">Professional 💼</option>
-                                <option value="casual">Casual 👋</option>
-                                <option value="enthusiastic">Enthusiastic 🎉</option>
-                                <option value="minimal">Minimal ✨</option>
-                            </select>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="density">Emoji density</label>
-                            <div class="density-control">
-                                <input type="range" id="density" min="1" max="4" value="2" oninput="updateDensityLabel(); convertText()">
-                                <div class="density-labels">
-                                    <span>Low</span>
-                                    <span>Med</span>
-                                    <span>High</span>
-                                    <span>Extra</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label for="placement">Placement</label>
-                            <select id="placement" onchange="convertText()">
-                                <option value="inline">Inline (after keywords)</option>
-                                <option value="end">End of message</option>
-                                <option value="start">Start of message</option>
-                                <option value="both">Both ends</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Ad in Tool -->
-                    <div class="ad-section ad-in-tool">
-                        <p class="ad-label">Advertisement</p>
-                        <div class="ad-placeholder">
-                            <!-- Replace with AdSense code -->
-                            <p>Responsive Ad Slot (In Tool)</p>
-                        </div>
-                    </div>
-
-                    <!-- Input/Output -->
-                    <div class="io-section">
-                        <div class="input-wrapper">
-                            <label for="input">Input</label>
-                            <span class="mobile-hint">👇 Paste your text below</span>
-                            <textarea id="input" placeholder="Type or paste your text here..." oninput="updateCharCount(); convertText()"></textarea>
-                        </div>
-
-                        <div class="output-wrapper">
-                            <div class="output-header">
-                                <label for="output">Output</label>
-                                <span class="char-count" id="charCount">0 chars</span>
-                            </div>
-                            <textarea id="output" readonly></textarea>
-                            <button class="copy-btn" onclick="copyOutput()">
-                                <span id="copyText">📋 Copy</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AdSense Bottom -->
-                <div class="ad-section ad-bottom">
-                    <p class="ad-label">Advertisement</p>
-                    <div class="ad-placeholder">
-                        <!-- Replace with AdSense code -->
-                        <p>Responsive Ad Slot (Below Tool)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Sidebar Ad -->
-            <aside class="sidebar-ad">
-                <div class="ad-section ad-sticky">
-                    <p class="ad-label">Advertisement</p>
-                    <div class="ad-placeholder ad-vertical">
-                        <!-- Replace with AdSense code -->
-                        <p>Vertical Ad<br>300x600</p>
-                    </div>
-                </div>
-            </aside>
-        </div>
-
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="info-section">
-            <h2>How It Works</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <div class="info-icon">✍️</div>
-                    <h3>1. Paste Your Text</h3>
-                    <p>Enter any message or text you want to enhance with emojis</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">🎨</div>
-                    <h3>2. Choose Your Style</h3>
-                    <p>Select from fun, professional, casual, or other preset styles</p>
-                </div>
-                <div class="info-card">
-                    <div class="info-icon">⚡</div>
-                    <h3>3. Adjust & Copy</h3>
-                    <p>Fine-tune emoji density and placement, then copy with one click</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="info-section">
-            <h2>FAQ</h2>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3>Is this tool free?</h3>
-                    <p>Yes! This tool is completely free to use with no registration required.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Do you store my text?</h3>
-                    <p>No. Everything runs locally in your browser. Your text never leaves your device.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What emoji styles are available?</h3>
-                    <p>We offer fun, professional, casual, enthusiastic, and minimal styles. Each optimizes emoji placement for different contexts.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Can I use this on mobile?</h3>
-                    <p>Absolutely! The tool is fully responsive and works great on all devices.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>&copy; 2026 TextToEmojiTool.com | Make your messages pop! 🚀</p>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <span>•</span>
-                <a href="terms.html">Terms of Service</a>
-                <span>•</span>
-                <a href="contact.html">Contact</a>
-            </div>
-        </footer>
+      <nav class="nav">
+        <a href="#tool">Tool</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </nav>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Ad Slot: Header (Responsive)
+         Good placement: visible but not blocking the tool.
+         Replace the placeholder with AdSense code after approval. -->
+    <div class="container">
+      <div class="ad-slot ad-header" aria-label="Advertisement">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-box">Responsive Ad Slot (Header)</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO / TOOL -->
+    <section class="hero" id="tool">
+      <div class="hero-left">
+        <h2>Paste text. Pick a vibe. Copy.</h2>
+        <p class="lead">
+          Choose a style, adjust emoji density, and get a share-ready message in seconds.
+          <span class="trust">Runs entirely in your browser. No login. No tracking.</span>
+        </p>
+
+        <div class="examples">
+          <button class="example-btn" data-example="I’m so excited for tonight!">Try: “I’m so excited for tonight!”</button>
+          <button class="example-btn" data-example="Reminder: meeting starts in 10 minutes.">Try: “Reminder: meeting starts in 10 minutes.”</button>
+          <button class="example-btn" data-example="Thank you for your help — I really appreciate it.">Try: “Thank you for your help…”</button>
+        </div>
+
+        <!-- Ad Slot: Sidebar (Desktop only)
+             Optional. Hidden on mobile to protect UX. -->
+        <div class="ad-slot ad-side" aria-label="Advertisement">
+          <div class="ad-label">Advertisement</div>
+          <div class="ad-box">Desktop Ad Slot (Sidebar)</div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="card">
+          <div class="controls">
+            <div class="control">
+              <label for="mode">Style</label>
+              <select id="mode" aria-label="Style mode">
+                <option value="fun">Fun 😄</option>
+                <option value="cute">Cute 🧸</option>
+                <option value="dramatic">Dramatic 🎭</option>
+                <option value="chaotic">Chaotic 🤪</option>
+                <option value="minimal">Minimal ✨</option>
+                <option value="pro">Professional 💼</option>
+              </select>
+            </div>
+
+            <div class="control">
+              <label for="density">Emoji density</label>
+              <input id="density" type="range" min="0" max="3" step="1" value="2" />
+              <div class="density-labels">
+                <span>Low</span><span>Med</span><span>High</span><span>Extra</span>
+              </div>
+            </div>
+
+            <div class="control">
+              <label for="inline">Placement</label>
+              <select id="inline" aria-label="Emoji placement">
+                <option value="inline" selected>Inline (after keywords)</option>
+                <option value="end">End of sentence</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Ad Slot: In-Tool (Responsive)
+               Great viewability without being disruptive. -->
+          <div class="ad-slot ad-in-tool" aria-label="Advertisement">
+            <div class="ad-label">Advertisement</div>
+            <div class="ad-box">Responsive Ad Slot (In Tool)</div>
+          </div>
+
+          <div class="text-areas">
+            <div class="area">
+              <label for="inputText">Input</label>
+              <textarea id="inputText" placeholder="Type or paste your text here…" rows="6"></textarea>
+              <div class="area-actions">
+                <button id="clearBtn" class="btn ghost" type="button">Clear</button>
+                <button id="swapBtn" class="btn ghost" type="button" title="Move output back to input">Output → Input</button>
+              </div>
+            </div>
+
+            <div class="area">
+              <div class="output-head">
+                <label for="outputText">Output</label>
+                <span id="charCount" class="meta">0 chars</span>
+              </div>
+              <textarea id="outputText" readonly rows="6" aria-label="Emoji output"></textarea>
+
+              <div class="actions">
+                <button id="copyBtn" class="btn primary" type="button">Copy</button>
+                <button id="shareBtn" class="btn" type="button">Share</button>
+              </div>
+
+              <p id="copyToast" class="toast" role="status" aria-live="polite">Copied!</p>
+            </div>
+          </div>
+
+          <div class="fineprint">
+            Tip: This tool is designed for quick copy-paste. For best results, keep sentences short.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MID CONTENT AD -->
+    <div class="ad-slot ad-mid" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-box">Responsive Ad Slot (Mid Page)</div>
+    </div>
+
+    <!-- HOW -->
+    <section class="section" id="how">
+      <h3>How it works</h3>
+      <div class="grid">
+        <div class="mini-card">
+          <h4>1) Choose a style</h4>
+          <p>Pick a vibe (Fun, Cute, Minimal, Pro…). Each style uses different emoji sets.</p>
+        </div>
+        <div class="mini-card">
+          <h4>2) Adjust density</h4>
+          <p>Control how emoji-heavy the output is. Keep it subtle or go wild.</p>
+        </div>
+        <div class="mini-card">
+          <h4>3) Copy & share</h4>
+          <p>One-click copy, and optional share using your device’s share menu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h3>FAQ</h3>
+      <div class="faq">
+        <details>
+          <summary>Does this run on my device?</summary>
+          <p>Yes. Everything runs in your browser. Your text isn’t uploaded anywhere.</p>
+        </details>
+        <details>
+          <summary>Can I use this on mobile?</summary>
+          <p>Yep — it’s optimized for mobile and quick copy-paste workflows.</p>
+        </details>
+        <details>
+          <summary>How do you choose emojis?</summary>
+          <p>The tool uses a small keyword map plus style packs. It’s designed to be fast and consistent.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Footer Ad (Optional)
+         This can be removed if you want a cleaner feel. -->
+    <div class="ad-slot ad-footer" aria-label="Advertisement">
+      <div class="ad-label">Advertisement</div>
+      <div class="ad-box">Responsive Ad Slot (Footer)</div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <strong>TextToEmojiTool.com</strong>
+          <p class="muted">Fast emoji formatting. No accounts. No tracking.</p>
+        </div>
+        <div class="footer-links">
+          <a href="#" id="aboutLink">About</a>
+          <a href="#" id="privacyLink">Privacy</a>
+          <a href="#" id="termsLink">Terms</a>
+          <a href="mailto:hello@texttoemojitool.com">Contact</a>
+        </div>
+      </div>
+      <p class="tiny muted">© <span id="year"></span> TextToEmojiTool</p>
+    </footer>
+  </main>
+
+  <!-- Simple modal for About/Privacy/Terms -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h4 id="modalTitle">Title</h4>
+        <button class="icon-btn" id="modalClose" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
